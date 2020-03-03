@@ -1,4 +1,4 @@
-var user = require("readline-sync")
+var user = require("readline-sync") //INCOMPLETO
 
 var jogador1 = user.question("Nome do jogador 1: ")
 var jogador2 = user.question("Nome do jogador 2: ")
@@ -15,20 +15,32 @@ for (let x = 0; x < 5; x++) {
 }
 
 var novo = []
+var igual = []
 var d = 0
+
+
 
 for (let x = 0; x < j1.length; x++) {
     for (let y = 0; y < j2.length; y++) {
-        if (j1[x] != j2[y]) {
-            d++
+        if (j1[x] == j2[y]) {
+            j1.splice(x,1)
+            x--
         }
     }
-    if (d==5) {
-        novo.push(j1[x])
-        d=0
-    }else{
-        d=0
+}
+
+novo = j1.concat(j2)
+
+var tam = novo.length
+var aux = 0
+for (tam; tam > 0; tam--) {
+    for (let x = 0; x < novo.length; x++) {
+        if (novo[x] > novo[x+1]) {
+            aux = novo[x]
+            novo[x] = novo[x+1]
+            novo[x+1] = aux
+        }
     }
 }
-j1.concat(novo)
-console.log(j1.join(", "))
+
+console.log(novo.join(", "))
