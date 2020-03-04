@@ -1,4 +1,4 @@
-var user = require("readline-sync")
+var user = require("readline-sync") //INCOMPLETO
 
 var vog = ['a', 'à', 'á', 'A', 'e', 'é','E','i','í','I','o','ó','O','u','ú','U']
 
